@@ -1,0 +1,53 @@
+<section class="wrapper">
+    <form (ngSubmit) = "formSubmit(playlistForm)" #playlistForm="ngForm">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input required minlength="3" maxlength="10"  ngModel #firstName="ngModel" [(ngModel)]="userObject.firstName"
+                 type="text" name="firstName" id="firstname" class="form-control"
+                placeholder="First Name" aria-describedby="helpId" appCustomeMobInput>
+            <div class="error-danger" *ngIf="firstName.touched && !firstName.valid">
+                <div *ngIf="firstName.control.errors.required">First name required</div>
+                <div *ngIf="firstName.control.errors.pattern">First name does't match the patern</div>
+                <div *ngIf="firstName.control.errors.maxlength">Max mength should be 10</div>
+                <div *ngIf="firstName.control.errors.minlength">Min length should be 3</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lasteName">Last Name</label>
+            <input   ngModel #lasteName="ngModel" [(ngModel)]="lastNname"
+             type="text" name="lasteName" id="lasteName" class="form-control" (focusout)="log(lasteName)"
+                placeholder="Last Name" aria-describedby="helpId">
+            <div class="error-danger" *ngIf="lasteName.touched && !lasteName.valid">
+                <div *ngIf="lasteName.control.errors.pattern">First name does't match the patern</div>
+                <div *ngIf="lasteName.control.errors.maxlength">Max mength should be 10</div>
+                <div *ngIf="lasteName.control.errors.minlength">Min length should be 3</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input required email   ngModel #email="ngModel" [(ngModel)]="userObject.email"
+             type="text" name="email" id="email" class="form-control"
+                placeholder="Email" aria-describedby="helpId">
+            <div class="error-danger" *ngIf="email.touched && !email.valid">
+                <div *ngIf="email.control.errors.required">Email required</div>
+                <div *ngIf="email.control.errors.email">Not a valid email</div>
+                <div *ngIf="email.control.errors.maxlength">Max mength should be 10</div>
+                <div *ngIf="email.control.errors.minlength">Min length should be 3</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">password</label>
+            <input required password minlength="3" maxlength="10"  ngModel #password="ngModel" [(ngModel)]="userObject.password"
+             type="password" name="password" id="password" class="form-control"
+                placeholder="password" aria-describedby="helpId">
+            <div class="error-danger" *ngIf="password.touched && !password.valid">
+                <div *ngIf="password.control.errors.required">password required</div>
+                <div *ngIf="password.control.errors.password">Not a valid password</div>
+                <div *ngIf="password.control.errors.maxlength">Max mength should be 10</div>
+                <div *ngIf="password.control.errors.minlength">Min length should be 3</div>
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="addToUserArray(userObject)">Submit</button>
+        <button class="btn btn.alert-secondary" (click)="showUserList()">Sow User List</button>
+    </form>
+</section>

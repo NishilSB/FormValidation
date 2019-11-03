@@ -1,0 +1,19 @@
+<div class="list-wraper">
+
+<table class="table">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Password</th>
+        </tr>
+        <tr *ngFor="let item of commonService.arrRegisteredUser">
+            <td scope="row">{{item.Name}}</td>
+            <td>{{item.LastName}}</td>
+            <td>{{item.Email}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.password}}</td>
+        </tr>
+</table>
+</div>
