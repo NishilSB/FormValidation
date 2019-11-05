@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    height: 100%;
+    background-color: aquamarine !important;
+  }
 .form-control.ng-invalid.ng-touched{
     border:2px solid red;
 }
@@ -8,4 +12,10 @@
     font-weight: lighter;
     padding: 0.5vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.flex-vhc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

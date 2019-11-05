@@ -11,6 +11,7 @@ import { AngularFireModule } from 'angularfire2'
 import { environment } from 'src/environments/environment';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { UserAccountComponent } from './services/user-account/user-account.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
     SignUpComponent,
     LoginComponent,
     CustomeMobInputDirective,
-    UserListComponent
+    UserListComponent,
+    UserAccountComponent
   ],
   imports: [
     BrowserModule,
