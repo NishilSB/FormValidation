@@ -2,7 +2,7 @@
   <form  class="section form-login" #loginForm="ngForm">
     <div class="form-group">
       <label for="userName bol"><b>User Name</b></label>
-      <input required ngModel #userName="ngModel" [(ngModel)]="userObject.userName"
+      <input required ngModel #userName [(ngModel)]="userObject.userName"
         type="text" name="userName" id="userName" class="form-control" placeholder="First Name"
         aria-describedby="helpId">
       <div class="error-danger" *ngIf="userName.touched && !userName.valid">
@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
       <label for="password"><b>Password</b></label>
-      <input ngModel #password="ngModel" [(ngModel)]="lastNname" type="text" name="password" id="password"
+      <input ngModel #password [(ngModel)]="lastNname" type="password" name="password" id="password"
         class="form-control"  placeholder="Last Name" aria-describedby="helpId">
       <div class="error-danger" *ngIf="password.touched && !password.valid">
         <div *ngIf="password.control.errors.pattern">First name does't match the patern</div>
@@ -20,7 +20,7 @@
         <div *ngIf="password.control.errors.minlength">Min length should be 3</div>
       </div>
       <div class="flex-vhc m-2" >
-         <button type="submit" class="btn btn-primary">Login</button>
+         <button type="submit" (click)="loginSubmit(userName.value,password.value)" class="btn btn-primary">Login</button>
       </div>
     </div>
   </form>

@@ -16,6 +16,14 @@ export class UserListComponent implements OnInit {
      this.commonService.arrRegisteredUser = data;
      console.log(this.commonService.arrRegisteredUser);
     });
+
+    // this.db.list('/UserList', ref => ref.orderByChild('Email').equalTo('nishil.sb@sss.com')).valueChanges().subscribe(data => {
+    //   console.log(data);
+    // });
+     //let dbref = this.db.database.ref('/UserList').orderByChild('Email').equalTo("nishil.sb@gmsssssail.com");
+     //console.log(dbref);
+   
+
   }
 
 }
