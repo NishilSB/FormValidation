@@ -1,5 +1,16 @@
 .div-header{
-    height: 8vh;
+    height: 8%;
+    background-color: #2874f0;
+    overflow: hidden;
+    position: sticky;
+    top: 0.5px;
+}
+.div-mid-wraper{
+    height: 84%;
+    display: block;
+}
+.footer{
+    height: 8%;
     background-color: #2874f0;
     overflow: hidden;
     position: sticky;

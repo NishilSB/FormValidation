@@ -12,6 +12,8 @@ import { environment } from 'src/environments/environment';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { UserAccountComponent } from './services/user-account/user-account.component';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { UserAccountComponent } from './services/user-account/user-account.compo
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore, CookieService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
