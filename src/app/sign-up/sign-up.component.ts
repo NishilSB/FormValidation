@@ -4,6 +4,7 @@ import { CommonServiceService } from '../common-service.service';
 import { Router } from '@angular/router';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireDatabase } from 'angularfire2/database';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +13,10 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(private commonService: CommonServiceService, private router: Router, private db: AngularFireDatabase) { }
+  constructor(private commonService: CommonServiceService,
+              private router: Router,
+              private db: AngularFireDatabase,
+              private httpClient: HttpClient) { }
 
   userObject = {firstname: '', lastName: '', email: '', password: '' };
   log(x) {
@@ -32,8 +36,9 @@ export class SignUpComponent implements OnInit {
     objTemp.password = userObject.password;
     this.commonService.arrRegisteredUser.push(objTemp);
     this.clearData();
-    console.log(this.commonService.arrRegisteredUser);
-    this.submitToFireBase(objTemp);
+    this.signUp(objTemp).subscribe(data => { console.log('signup result--->', data) });
+    // console.log(this.commonService.arrRegisteredUser);
+    // this.submitToFireBase(objTemp);
   }
 
   clearData() {
@@ -50,6 +55,13 @@ export class SignUpComponent implements OnInit {
     //   (result) => {console.log('add success', result); },
     //   (error) => {console.log('add rejected', error); }
     //   ));
+
+  }
+
+  signUp(obj) {
+    return this.httpClient.post(
+      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDV13PHZ6qwF7SBiuG-5syPzFUdq6Hg_Rs',
+      {email: obj.Email, password: obj.password, returnSecureToken: true} );
 
   }
   ngOnInit() {

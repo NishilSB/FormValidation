@@ -9,12 +9,13 @@ export class AuthGuardService implements CanActivate {
   constructor(private authSer: AuthServiceService, private route: Router) { }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.authSer.isAutherised() === 'true') {
-        return true;
-      } else {
-        this.route.navigate(['/login']);
-        return false;
-      }
+    return true;
+    // if (this.authSer.isAutherised() === 'true') {
+    //     return true;
+    //   } else {
+    //     this.route.navigate(['/login']);
+    //     return false;
+    //   }
 
   }
 }

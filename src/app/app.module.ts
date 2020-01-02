@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -14,6 +14,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { UserAccountComponent } from './services/user-account/user-account.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthGuardService } from './guards/auth-guard.service';
+import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { AuthGuardService } from './guards/auth-guard.service';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   providers: [AngularFirestore, CookieService, AuthGuardService],
   bootstrap: [AppComponent]
