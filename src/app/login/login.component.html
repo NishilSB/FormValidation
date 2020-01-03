@@ -2,7 +2,7 @@
   <form  class="section form-login" #loginForm="ngForm">
     <div class="form-group">
       <label for="userName bol"><b>User Name</b></label>
-      <input required ngModel #userName [(ngModel)]="userObject.userName"
+      <input required ngModel #userName
         type="text" name="userName" id="userName" class="form-control" placeholder="First Name"
         aria-describedby="helpId">
       <div class="error-danger" *ngIf="userName.touched && !userName.valid">
@@ -19,8 +19,13 @@
         <div *ngIf="password.control.errors.maxlength">Max mength should be 10</div>
         <div *ngIf="password.control.errors.minlength">Min length should be 3</div>
       </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="defaultUnchecked" #keepMeLoginChk>
+        <label class="custom-control-label" for="defaultUnchecked">Keep me loged in</label>
+      </div>
       <div class="flex-vhc m-2" >
-         <button type="submit" (click)="loginSubmit(userName.value,password.value)" class="btn btn-primary">Login</button>
+         <button type="submit" (click)="loginSubmit(loginForm)" class="btn btn-primary">Login</button> |
+         <button type="button" (click)="onSignUp()" class="btn btn-secondary">Sign Up</button>
       </div>
     </div>
   </form>
